@@ -16,13 +16,13 @@ public class MineBraft extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerChat(AsyncPlayerChatEvent event) {
 
-        String message = event.getMessage();
+        String message = event.getMessage().toLowerCase();
 
-        if (message.toLowerCase().contains("b")
-                || message.toLowerCase().contains("c")
-                || message.toLowerCase().contains("k")) {
+        if (message.contains("b")
+                || message.contains("c")
+                || message.contains("k")) {
 
-            event.setMessage(message.replaceAll("(?i)[bck]",
+            event.setMessage(event.getMessage().replaceAll("(?i)[bck]",
                     ChatColor.RED.toString() + ChatColor.BOLD + "B" + ChatColor.RESET));
 
         }
